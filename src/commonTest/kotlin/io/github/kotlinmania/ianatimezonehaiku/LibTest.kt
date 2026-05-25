@@ -13,7 +13,12 @@ class LibTest {
      * return null.
      */
     @Test
-    fun fallbackOnNonHaikuPlatforms() {
+    fun testFallbackOnNonHaikuPlatforms() {
         assertNull(getTimezone())
     }
+
+    // Upstream lib.rs also has `test_retrieve_time_zone_on_haiku_platforms`
+    // gated on `#[cfg(target_os = "haiku")]`. Kotlin/Native has no Haiku
+    // target, so there is no Kotlin host on which that test can run — it
+    // is intentionally not ported.
 }
