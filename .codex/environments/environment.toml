@@ -1,5 +1,5 @@
 version = 1
-name = "iana-time-zone-haiku-kotlin"
+name = "proc-macro-kotlin"
 
 [setup]
 script = '''
