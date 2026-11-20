@@ -1,4 +1,3 @@
-#if canImport(Testing)
 import Testing
 import IanaTimeZoneHaiku
 
@@ -8,14 +7,12 @@ struct SmokeTests {
     func testFallbackOnNonHaiku() {
         #expect(IanaTimeZoneHaiku.getTimezone() == nil)
     }
-}
-#elseif canImport(XCTest)
-import XCTest
-import IanaTimeZoneHaiku
 
-final class SmokeTests: XCTestCase {
-    func testFallbackOnNonHaiku() throws {
-        XCTAssertNil(IanaTimeZoneHaiku.getTimezone())
+    @Test("Repeated fallback calls bridge cleanly to nil")
+    func testRepeatedNullableFallback() {
+        for _ in 0..<3 {
+            let timezone: String? = IanaTimeZoneHaiku.getTimezone()
+            #expect(timezone == nil)
+        }
     }
 }
-#endif
