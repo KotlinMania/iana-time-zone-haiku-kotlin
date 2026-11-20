@@ -34,7 +34,7 @@ dependency.
 
 ```kotlin
 commonMain.dependencies {
-    implementation("io.github.kotlinmania:iana-time-zone-haiku-kotlin:0.1.0")
+    implementation("io.github.kotlinmania:iana-time-zone-haiku-kotlin:0.1.2")
 }
 ```
 
